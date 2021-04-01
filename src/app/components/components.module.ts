@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
+
+// Imports module
+import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
 
-// Imports
+// Imports components
 import { NavbarComponent } from './navbar/navbar.component';
 import { GraphicBarComponent } from './graphic-bar/graphic-bar.component';
 
@@ -15,7 +18,8 @@ import { GraphicBarComponent } from './graphic-bar/graphic-bar.component';
     GraphicBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ]
 })
 export class ComponentsModule { }
