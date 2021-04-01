@@ -61,7 +61,7 @@ or
 ng g c pages/home --skip-tests
 ```
 
-# Create module in folder components
+# Create module in folder components (--flat (--flat	Create the new files at the top level of the current project root.))
 ```javascript
 ng generate module components/components --flat 
 ```
