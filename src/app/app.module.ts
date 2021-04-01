@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GameOfTheYearComponent } from './pages/game-of-the-year/game-of-the-year.component';
 
+// Imports modules
+import { ComponentsModule } from './components/components.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +20,8 @@ import { GameOfTheYearComponent } from './pages/game-of-the-year/game-of-the-yea
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
