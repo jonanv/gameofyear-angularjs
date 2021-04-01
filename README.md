@@ -61,6 +61,15 @@ or
 ng g c pages/home --skip-tests
 ```
 
+# Create module in folder components
+```javascript
+ng generate module components/components --flat 
+```
+or
+```javascript
+ng g m components/components --flat
+```
+
 <!-- 
 # Create service without file .spec (--skip-tests)
 ```javascript
