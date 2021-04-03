@@ -8,7 +8,8 @@
 [![License][license-badge]][license-url]
 
 # Site
-<!-- ![gameofyear angularjs](https://i.imgur.com/HnCHwoV.png) -->
+![gameofyear angularjs](https://i.imgur.com/6gs6GWZ.png)
+![gameofyear angularjs 2](https://i.imgur.com/OZaGJBq.png)
 
 # Install dependences
 in ```gameofyear-angularjs/```
