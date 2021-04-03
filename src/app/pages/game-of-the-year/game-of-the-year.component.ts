@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from 'src/app/services/game.service';
 import { first } from 'rxjs/operators';
 import { Game, Response } from 'src/app/interfaces/game.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-game-of-the-year',
@@ -34,12 +35,24 @@ export class GameOfTheYearComponent implements OnInit {
   }
 
   public voteByGame(id: string): void {
-    this.gameService.postVoteGame(id)
+    this.gameService.postVoteGame('4324234')
       .pipe(first())
       .subscribe((response: Response) => {
-        console.log(response);
+        if (response.ok) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Gracias',
+            text: response.message,
+          });
+        }
       }, (error) => {
-        console.error(error);
+        if (!error.error.ok) {
+          Swal.fire({
+            icon: 'error',
+            title: 'El voto ha fallado.',
+            text: error.error.message,
+          });
+        }
       });
   }
 }
