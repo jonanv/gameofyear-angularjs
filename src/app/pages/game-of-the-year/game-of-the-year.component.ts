@@ -35,7 +35,7 @@ export class GameOfTheYearComponent implements OnInit {
   }
 
   public voteByGame(id: string): void {
-    this.gameService.postVoteGame('4324234')
+    this.gameService.postVoteGame(id)
       .pipe(first())
       .subscribe((response: Response) => {
         if (response.ok) {
@@ -45,12 +45,11 @@ export class GameOfTheYearComponent implements OnInit {
             text: response.message,
           });
         }
-      }, (error) => {
-        if (!error.error.ok) {
+        else {
           Swal.fire({
             icon: 'error',
             title: 'El voto ha fallado.',
-            text: error.error.message,
+            text: response.message,
           });
         }
       });

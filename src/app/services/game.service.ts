@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // Imports
 import { HttpClient } from '@angular/common/http';
-import { map, tap } from "rxjs/operators";
+import { catchError, map, tap } from "rxjs/operators";
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Game, Response } from '../interfaces/game.interface';
@@ -37,6 +37,9 @@ export class GameService {
     return this.http.post<Response>(`${ environment.apiUrl }api/goty/${ id }`, body)
       .pipe(map((response: Response) => {
         return response;
+      }),
+      catchError(err => {
+        return of(err.error);
       }));
   }
 }
