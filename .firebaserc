@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gameofyear-angularjs": {
+      "hosting": {
+        "gameofyear-angularjs": [
+          "gameofyear-angularjs"
+        ]
+      }
+    }
+  }
+}
