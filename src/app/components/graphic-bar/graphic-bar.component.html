@@ -1,5 +1,11 @@
 <div class="chart-container">
+
+  <div *ngIf="!games" class="d-flex justify-content-center align-center">
+    <span><i class="fas fa-spinner fa-spin fa-4x"></i></span>
+  </div>
+
   <ngx-charts-bar-horizontal
+    *ngIf="games"
     [scheme]="colorScheme"
     [results]="games"
     [gradient]="gradient"

@@ -4,7 +4,12 @@
 <div class="row">
   <div class="col">
 
-    <div class="card-columns">
+    <div *ngIf="loading" class="d-flex justify-content-center align-center">
+      <span><i class="fas fa-spinner fa-spin fa-4x"></i></span>
+    </div>
+
+    <div class="card-columns"
+      *ngIf="!loading">
       <div class="card bg-dark"
           *ngFor="let game of games">
         <img [src]="game.url" class="card-img-top" alt="...">

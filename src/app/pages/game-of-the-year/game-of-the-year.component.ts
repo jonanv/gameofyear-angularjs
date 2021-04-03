@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 export class GameOfTheYearComponent implements OnInit {
 
   public games: Game[] = [];
+  public loading: boolean = false;
 
   constructor(
     private gameService: GameService
@@ -24,14 +25,17 @@ export class GameOfTheYearComponent implements OnInit {
   }
 
   public getGames(): void {
-    this.gameService.getGames()
-      .pipe(first())
-      .subscribe((response: Game[]) => {
-        this.games = response;
-        console.log(this.games);
-      }, (error) => {
-        console.error(error);
-      });
+    this.loading = true;
+    setTimeout(() => {
+      this.gameService.getGames()
+        .pipe(first())
+        .subscribe((response: Game[]) => {
+          this.games = response;
+          this.loading = false;
+        }, (error) => {
+          console.error(error);
+        });
+    }, 1500);
   }
 
   public voteByGame(id: string): void {

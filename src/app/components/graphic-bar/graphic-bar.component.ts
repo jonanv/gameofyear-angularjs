@@ -7,7 +7,7 @@ import { Component, Input, OnDestroy } from '@angular/core';
 })
 export class GraphicBarComponent implements OnDestroy {
 
-  @Input() public games: any[];
+  @Input() public games: any[] = [];
 
   // options
   public showXAxis = true;
