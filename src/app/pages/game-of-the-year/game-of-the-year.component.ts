@@ -12,7 +12,7 @@ import { Game } from 'src/app/interfaces/game.interface';
 })
 export class GameOfTheYearComponent implements OnInit {
 
-  private games: Game[] = [];
+  public games: Game[] = [];
 
   constructor(
     private gameService: GameService
@@ -29,5 +29,9 @@ export class GameOfTheYearComponent implements OnInit {
         this.games = response;
         console.log(this.games);
       });
+  }
+
+  public voteByGame(name: string) {
+    console.log(name);
   }
 }
