@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Imports
 import { GameService } from 'src/app/services/game.service';
 import { first } from 'rxjs/operators';
-import { Game } from 'src/app/interfaces/game.interface';
+import { Game, Response } from 'src/app/interfaces/game.interface';
 
 @Component({
   selector: 'app-game-of-the-year',
@@ -28,10 +28,18 @@ export class GameOfTheYearComponent implements OnInit {
       .subscribe((response: Game[]) => {
         this.games = response;
         console.log(this.games);
+      }, (error) => {
+        console.error(error);
       });
   }
 
-  public voteByGame(name: string) {
-    console.log(name);
+  public voteByGame(id: string): void {
+    this.gameService.postVoteGame(id)
+      .pipe(first())
+      .subscribe((response: Response) => {
+        console.log(response);
+      }, (error) => {
+        console.error(error);
+      });
   }
 }

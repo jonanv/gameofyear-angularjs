@@ -4,3 +4,8 @@ export interface Game {
   name: string;
   votes: number;
 }
+
+export interface Response {
+  ok: boolean;
+  message: string;
+}

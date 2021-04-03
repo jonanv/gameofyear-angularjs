@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 // Imports
 import { HttpClient } from '@angular/common/http';
-import { tap } from "rxjs/operators";
+import { map, tap } from "rxjs/operators";
 import { Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { Game } from '../interfaces/game.interface';
+import { environment } from '../../environments/environment';
+import { Game, Response } from '../interfaces/game.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +30,13 @@ export class GameService {
           this.games = response;
         }));
     }
+  }
+
+  public postVoteGame(id: string): Observable<Response> {
+    let body = {};
+    return this.http.post<Response>(`${ environment.apiUrl }api/goty/${ id }`, body)
+      .pipe(map((response: Response) => {
+        return response;
+      }));
   }
 }
