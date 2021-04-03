@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-graphic-bar',
@@ -7,24 +7,7 @@ import { Component, OnDestroy } from '@angular/core';
 })
 export class GraphicBarComponent implements OnDestroy {
 
-  public results: any[] = [
-    {
-      "name": "Juego 1",
-      "value": 20
-    },
-    {
-      "name": "Juego 2",
-      "value": 25
-    },
-    {
-      "name": "Juego 3",
-      "value": 15
-    },
-    {
-      "name": "Juego 4",
-      "value": 30
-    }
-  ];
+  @Input() public games: any[];
 
   // options
   public showXAxis = true;
@@ -41,17 +24,17 @@ export class GraphicBarComponent implements OnDestroy {
   private intervalo;
 
   constructor() {
-    this.intervalo = setInterval(() => {
-      console.log('tick');
+    // this.intervalo = setInterval(() => {
+    //   console.log('tick');
 
-      const newResults = [...this.results];
+    //   const newResults = [...this.results];
 
-      for (let i in newResults) {
-        newResults[i].value = Math.round(Math.random() * 500);
-      }
+    //   for (let i in newResults) {
+    //     newResults[i].value = Math.round(Math.random() * 500);
+    //   }
 
-      this.results = [...newResults];
-    }, 1500);
+    //   this.results = [...newResults];
+    // }, 1500);
   }
 
   ngOnDestroy(): void {
