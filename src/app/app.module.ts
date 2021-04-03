@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 // Imports module routing
 import { AppRoutingModule } from './app-routing.module';
+
+// Imports
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 // Imports modules
 import { ComponentsModule } from './components/components.module';
@@ -22,7 +25,8 @@ import { GameOfTheYearComponent } from './pages/game-of-the-year/game-of-the-yea
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+// Imports
+import { GameService } from 'src/app/services/game.service';
+import { first } from 'rxjs/operators';
+import { Game } from 'src/app/interfaces/game.interface';
+
 @Component({
   selector: 'app-game-of-the-year',
   templateUrl: './game-of-the-year.component.html',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameOfTheYearComponent implements OnInit {
 
-  constructor() { }
+  private games: Game[] = [];
+
+  constructor(
+    private gameService: GameService
+  ) { }
 
   ngOnInit(): void {
+    this.getGames();
   }
 
+  public getGames(): void {
+    this.gameService.getGames()
+      .pipe(first())
+      .subscribe((response: Game[]) => {
+        this.games = response;
+        console.log(this.games);
+      });
+  }
 }

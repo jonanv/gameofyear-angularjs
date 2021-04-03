@@ -70,25 +70,23 @@ or
 ng g m components/components --flat
 ```
 
-<!-- 
 # Create service without file .spec (--skip-tests)
 ```javascript
-ng generate service services/creditCard --skip-tests
+ng generate service services/game --skip-tests
 ```
 or
 ```javascript
-ng g s services/creditCard --skip-tests
+ng g s services/game --skip-tests
 ```
 
 # Create interface (add at file name '.interface.ts')
 ```javascript
-ng generate interface interfaces/creditCard --skip-tests
+ng generate interface interfaces/game
 ```
 or
 ```javascript
-ng g i interfaces/creditCard --skip-tests
+ng g i interfaces/game  
 ``` 
--->
 
 # Server local
 install global ```sudo npm i -g http-server```
